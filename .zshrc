@@ -1,5 +1,7 @@
 source /usr/share/zsh-antigen/antigen.zsh
 
+export TERM="xterm-256color"
+
 DEFAULT_USER=ilya
 
 # Load the oh-my-zsh's library.
