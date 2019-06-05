@@ -13,6 +13,20 @@ antigen bundle pip
 #antigen bundle lein
 antigen bundle command-not-found
 
+#antigen theme powerlevel9k
+antigen bundle fancy-ctrl-z
+antigen bundle git-extras
+antigen bundle gnu-utils
+antigen bundle rake
+antigen bundle systemd
+antigen bundle python
+antigen bundle tmux
+antigen bundle zsh_reload
+antigen bundle zsh-users/zsh-autosuggestions
+# antigen bundle popstas/zsh-command-time
+
+
+
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="243"
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="000"
 POWERLEVEL9K_VIRTUALENV_BACKGROUND="30c"
@@ -45,4 +59,26 @@ setopt HIST_SAVE_NO_DUPS
 case $- in *i*)
 #    [ -z "$TMUX" ] && exec tmux
 esac
+
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+export COLORTERM=truecolor
+export LANG=en_US.utf8
+export LANGUAGE=en
+export QT_SELECT="qt5"
+LC_ALL="en_US.utf8"
+
+if [ -n $TMUX ]; then
+	alias vim="TERM=screen-256color vim"
+	alias mc='TERM=screen-256color mc -S gray-green-purple256'
+fi
+
+alias docker_rm_stopped='sudo docker rm -v $(sudo docker ps -aq -f status=exited)'
+alias docker_kill_all='sudo docker kill $(sudo docker ps -q)'
+alias docker_rm_images='docker rmi $(docker images -q)'
 
