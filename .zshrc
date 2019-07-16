@@ -1,4 +1,4 @@
-source /usr/share/zsh-antigen/antigen.zsh
+source ~/antigen.zsh
 
 DEFAULT_USER="ilya"
 
@@ -30,8 +30,13 @@ antigen bundle zsh-users/zsh-autosuggestions
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="243"
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="000"
 POWERLEVEL9K_VIRTUALENV_BACKGROUND="30c"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context dir rbenv vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context dir rbenv vcs) #newline
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history command_execution_time time)
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="→ "
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
@@ -82,3 +87,4 @@ alias docker_rm_stopped='sudo docker rm -v $(sudo docker ps -aq -f status=exited
 alias docker_kill_all='sudo docker kill $(sudo docker ps -q)'
 alias docker_rm_images='docker rmi $(docker images -q)'
 
+# source ~/scmprompt.zsh

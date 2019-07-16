@@ -1,8 +1,8 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 RUN export DEBIAN_FRONTEND=noninteractive; \
     apt-get update && \
-    apt-get -y install git sudo \
+    apt-get -y install git sudo bison \
     automake \
     build-essential \
     pkg-config \
