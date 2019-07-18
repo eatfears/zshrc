@@ -57,6 +57,8 @@ setopt HIST_FIND_NO_DUPS		# Do not display a line previously found.
 setopt HIST_IGNORE_SPACE		# Don't record an entry starting with a space.
 setopt HIST_SAVE_NO_DUPS
 
+# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+# ~/.fzf/install
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ################################################
