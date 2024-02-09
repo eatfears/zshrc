@@ -1,6 +1,12 @@
 [user]
-    # email = ilyasivakov@gmail.com
-    name = Ilya Sivakov
+	name = Ilya Sivakov
+	email = ilyasivakov@gmail.com
+
+[core]
+	editor = code --wait
+
+[init]
+	defaultBranch = main
 
 [color]
     ui = auto
