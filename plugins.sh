@@ -16,3 +16,6 @@ fc-cache -vf
 # https://github.com/zsh-users/antigen
 # or use git.io/antigen-nightly for the latest version
 curl -L git.io/antigen > ~/antigen.zsh
+
+wget -qO- http://ipecho.net/plain | xargs echo
+curl -s http://ifconfig.me | xargs echo
