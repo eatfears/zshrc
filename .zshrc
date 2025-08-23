@@ -1,4 +1,11 @@
-source ~/antigen.zsh
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+source /home/eatfears/antigen.zsh
 
 DEFAULT_USER="eatfears"
 
@@ -21,28 +28,14 @@ antigen bundle rake
 antigen bundle systemd
 antigen bundle python
 antigen bundle tmux
-antigen bundle zsh_reload
+
+antigen theme romkatv/powerlevel10k
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 antigen bundle zsh-users/zsh-autosuggestions
-# antigen bundle popstas/zsh-command-time
-
-
-
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="243"
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="000"
-POWERLEVEL9K_VIRTUALENV_BACKGROUND="30c"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context dir rbenv vcs) #newline
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history command_execution_time time)
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
-
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="→ "
-
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-
-#antigen theme agnoster
-antigen theme bhilburn/powerlevel9k powerlevel9k
 
 antigen apply
 
@@ -90,3 +83,17 @@ alias docker_kill_all='sudo docker kill $(sudo docker ps -q)'
 alias docker_rm_images='docker rmi $(docker images -q)'
 
 # source ~/scmprompt.zsh
+#
+
+export PATH=$PATH:/usr/local/go/bin:/home/eatfears/go/bin
+
+# The next line updates PATH for CLI.
+if [ -f '/home/eatfears/yandex-cloud/path.bash.inc' ]; then source '/home/eatfears/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/home/eatfears/yandex-cloud/completion.zsh.inc' ]; then source '/home/eatfears/yandex-cloud/completion.zsh.inc'; fi
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
