@@ -35,3 +35,6 @@
     br = branch
     df = diff
     l  = log
+
+[push]
+	default = upstream
